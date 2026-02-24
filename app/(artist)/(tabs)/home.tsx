@@ -114,7 +114,7 @@ const Home = () => {
                 onPress={() =>
                   router.push(`/(artist)/(others)/profile-details/${item.href}`)
                 }
-                className="bg-[#F3B3C31A] rounded-2xl h-40 pt-7 p-4 items-center flex-1 mx-2 shadow-sm"
+                className="bg-[#F3B3C31A] rounded-2xl h-40 pt-7 p-4 items-center flex-1 mx-2"
               >
                 <View className="bg-[#E8A0BF] p-4 rounded-xl mb-2 w-16 h-16 flex items-center justify-center">
                   <Feather name={item.icon} size={24} color="#FFFFFF" />
