@@ -1,3 +1,4 @@
+import icons from "@/constants/icons";
 import { MaterialIcons, Octicons } from "@expo/vector-icons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -159,7 +160,6 @@ export const profileData = [
 ];
 
 // Overview tab data
-
 export const overviewData = [
   {
     id: "payout_settings_1",
@@ -176,5 +176,54 @@ export const overviewData = [
     bg: "#F3B3C31A",
     borderColor: "#FFFFFF",
     icon: <Octicons name="download" size={20} color="#E8A0BF" />,
+  },
+];
+
+// My Services data
+export const myServicesData = [
+  {
+    id: "1",
+    title: "Teen & Prom Glam",
+    icon: icons.sparkle,
+  },
+  {
+    id: "2",
+    title: "Natural Radiance Glam",
+    icon: icons.leaf,
+  },
+  {
+    id: "3",
+    title: "Bold Celebration Glam",
+    icon: icons.confetti,
+  },
+  {
+    id: "4",
+    title: "Premium Bridal Makeup Suite",
+    icon: icons.bride,
+  },
+  {
+    id: "5",
+    title: "Elegant Bridal Collection",
+    icon: icons.ring,
+  },
+  {
+    id: "6",
+    title: "Royal Bridal Ensemble",
+    icon: icons.crown,
+  },
+  {
+    id: "7",
+    title: "Studio Luxe Package",
+    icon: icons.diamond,
+  },
+  {
+    id: "8",
+    title: "Red Carpet Royalty Experience",
+    icon: icons.star,
+  },
+  {
+    id: "9",
+    title: "Consultation (30 mins / 1 hour)",
+    icon: icons.message,
   },
 ];
