@@ -1,6 +1,6 @@
 import CustomButton from "@/components/CustomButton";
 import FormField from "@/components/FormField";
-import SocialAuth from "@/components/SocialAuth";
+import OAuth from "@/components/OAuth";
 import { EMAIL_REGEX } from "@/lib/lib";
 import { Link, useRouter } from "expo-router";
 import React from "react";
@@ -108,7 +108,7 @@ const LoginScreen = () => {
             </Link>
           </View>
           <View className="mt-24">
-            <SocialAuth title="Or Login With" />
+            <OAuth title="Or Login With" />
           </View>
         </View>
       </ScrollView>

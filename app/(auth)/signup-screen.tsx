@@ -1,6 +1,6 @@
 import CustomButton from "@/components/CustomButton";
 import FormField from "@/components/FormField";
-import SocialAuth from "@/components/SocialAuth";
+import OAuth from "@/components/OAuth";
 import { EMAIL_REGEX } from "@/lib/lib";
 import { Link, useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
@@ -142,7 +142,7 @@ export default function SignupScreen() {
             </Link>
           </View>
           <View className="mt-16 mb-32">
-            <SocialAuth title="Or Sign Up With" />
+            <OAuth title="Or Sign Up With" />
           </View>
         </View>
       </ScrollView>
