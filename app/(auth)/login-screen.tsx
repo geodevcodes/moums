@@ -1,6 +1,6 @@
 import CustomButton from "@/components/CustomButton";
 import FormField from "@/components/FormField";
-import OAuth from "@/components/OAuth";
+import SocialAuth from "@/components/SocialAuth";
 import { EMAIL_REGEX } from "@/lib/lib";
 import { Link, useRouter } from "expo-router";
 import React from "react";
@@ -95,7 +95,7 @@ const LoginScreen = () => {
             className="mt-7 bg-[#E8A0BF] rounded-3xl"
             textStyles="text-white"
           />
-          <OAuth title="Sign In with Google" />
+
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-[#414242] font-poppins-regular">
               Don’t have an account?
@@ -106,6 +106,9 @@ const LoginScreen = () => {
             >
               Sign Up
             </Link>
+          </View>
+          <View className="mt-24">
+            <SocialAuth title="Or Login With" />
           </View>
         </View>
       </ScrollView>

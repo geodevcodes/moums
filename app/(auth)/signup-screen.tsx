@@ -1,5 +1,6 @@
 import CustomButton from "@/components/CustomButton";
 import FormField from "@/components/FormField";
+import SocialAuth from "@/components/SocialAuth";
 import { EMAIL_REGEX } from "@/lib/lib";
 import { Link, useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
@@ -129,7 +130,7 @@ export default function SignupScreen() {
             className="mt-16 rounded-3xl bg-[#E8A0BF]"
             textStyles="text-white font-medium"
           />
-          <View className="flex justify-center pt-5 flex-row gap-2 mb-32">
+          <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-[#414242] font-poppins-regular">
               Already have an Account?
             </Text>
@@ -139,6 +140,9 @@ export default function SignupScreen() {
             >
               Login
             </Link>
+          </View>
+          <View className="mt-16 mb-32">
+            <SocialAuth title="Or Sign Up With" />
           </View>
         </View>
       </ScrollView>

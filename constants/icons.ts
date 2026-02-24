@@ -1,8 +1,10 @@
+import apple from "@/assets/icons/apple.png";
 import bookings from "@/assets/icons/bookings.png";
 import calender from "@/assets/icons/calender.png";
 import chat from "@/assets/icons/chat.png";
 import eyeHide from "@/assets/icons/eye-hide.png";
 import eye from "@/assets/icons/eye.png";
+import facebook from "@/assets/icons/facebook.png";
 import google from "@/assets/icons/google.png";
 import home from "@/assets/icons/home.png";
 import logout from "@/assets/icons/logout.png";
@@ -13,6 +15,8 @@ export default {
   notification,
   logout,
   google,
+  facebook,
+  apple,
   eyeHide,
   eye,
   home,
