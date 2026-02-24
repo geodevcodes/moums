@@ -3,7 +3,6 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useMemo, useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import Animated from "react-native-reanimated";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const MyServices = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -21,12 +20,12 @@ const MyServices = () => {
   );
 
   return (
-    <SafeAreaView className="bg-[#FFFAFA] px-5 flex-1">
-      <Animated.ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 40 }}
-      >
-        {/* Header */}
+    <Animated.ScrollView
+      showsVerticalScrollIndicator={false}
+      scrollEventThrottle={16}
+      contentContainerStyle={{ paddingTop: 32, paddingBottom: 120 }}
+    >
+      <View className="bg-[#FFFAFA] px-3 h-full">
         <View>
           <Text className="text-xl font-semibold text-center text-[#1E1E1E]">
             Choose the Services You Offer
@@ -40,7 +39,7 @@ const MyServices = () => {
 
         {/* Selected Banner */}
         {selectedServices.length > 0 && (
-          <View className="mt-6 bg-[#F9E6EC] border border-[#E8A0BF] rounded-2xl px-4 py-3 flex-row items-center gap-3">
+          <View className="mt-6 bg-[#F9E6EC] border border-[#E8A0BF] rounded-2xl  py-3 flex-row items-center gap-3">
             <View className="w-6 h-6 rounded-full bg-[#E8A0BF] items-center justify-center">
               <Ionicons name="checkmark" size={14} color="white" />
             </View>
@@ -94,7 +93,6 @@ const MyServices = () => {
           })}
         </View>
 
-        {/* Info Box */}
         <View className="mt-8 bg-[#FFF1F5] border border-[#F2C6D5] rounded-2xl p-4 flex-row gap-3">
           <Ionicons name="sparkles-outline" size={18} color="#E8A0BF" />
           <Text className="text-xs text-[#6D6D6D] flex-1 leading-5">
@@ -102,8 +100,6 @@ const MyServices = () => {
             Standard services help clients find exactly what they need.
           </Text>
         </View>
-
-        {/* Continue Button */}
         <Pressable
           disabled={isContinueDisabled}
           className={`mt-8 py-4 rounded-2xl items-center ${
@@ -120,8 +116,8 @@ const MyServices = () => {
             Select at least one service to continue
           </Text>
         )}
-      </Animated.ScrollView>
-    </SafeAreaView>
+      </View>
+    </Animated.ScrollView>
   );
 };
 
