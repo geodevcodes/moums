@@ -17,6 +17,7 @@ import message from "@/assets/icons/message.png";
 import notification from "@/assets/icons/notification.png";
 import profile from "@/assets/icons/profile.png";
 import ring from "@/assets/icons/ring.png";
+import search from "@/assets/icons/search.png";
 import sparkle from "@/assets/icons/sparkle.png";
 import star from "@/assets/icons/star.png";
 
@@ -30,6 +31,7 @@ export default {
   eye,
   home,
   chat,
+  search,
   bookings,
   profile,
   calender,
