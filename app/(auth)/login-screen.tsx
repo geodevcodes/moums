@@ -96,7 +96,7 @@ const LoginScreen = () => {
             textStyles="text-white"
           />
           <OAuth title="Sign In with Google" />
-          <View className="flex justify-center pt-5 flex-row gap-2 absolute -bottom-72 left-0 right-0">
+          <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-[#414242] font-poppins-regular">
               Don’t have an account?
             </Text>

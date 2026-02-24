@@ -1,7 +1,7 @@
 import CustomButton from "@/components/CustomButton";
 import FormField from "@/components/FormField";
 import { EMAIL_REGEX } from "@/lib/lib";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -27,8 +27,8 @@ export default function SignupScreen() {
   };
 
   return (
-    <SafeAreaView className="h-full">
-      <ScrollView>
+    <SafeAreaView className="h-full ">
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View className="w-full px-8 mt-4">
           <Text className="text-2xl font-semibold text-[#232429] mt-16 text-center">
             Create Artist Account
@@ -129,6 +129,17 @@ export default function SignupScreen() {
             className="mt-16 rounded-3xl bg-[#E8A0BF]"
             textStyles="text-white font-medium"
           />
+          <View className="flex justify-center pt-5 flex-row gap-2 mb-32">
+            <Text className="text-lg text-[#414242] font-poppins-regular">
+              Already have an Account?
+            </Text>
+            <Link
+              href="/(auth)/login-screen"
+              className="text-lg font-semibold text-[#E8A0BF]"
+            >
+              Login
+            </Link>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
