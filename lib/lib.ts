@@ -14,6 +14,8 @@ export const formatDateForDisplay = (dateString: string) => {
 export const avatarPlaceholderUrl = `https://api.dicebear.com/7.x/avataaars/png?seed=46`;
 
 export const GOOGLE_CONFIG = {
+  androidClientId:
+    "33348702787-mlvtks4lffv665htd26u8crjvdch8e76.apps.googleusercontent.com",
   webClientId:
     "33348702787-hb3kj6qdnk0gimadg1du0nkl9pdehgjl.apps.googleusercontent.com",
   iosClientId:

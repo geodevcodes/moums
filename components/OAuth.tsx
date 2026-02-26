@@ -36,7 +36,7 @@ const OAuth = ({ title }: OAuthProps) => {
   const [request, response, promptAsync] = Google.useAuthRequest({
     // expoClientId: GOOGLE_CONFIG.expoClientId,
     iosClientId: GOOGLE_CONFIG.iosClientId,
-    androidClientId: GOOGLE_CONFIG.webClientId,
+    androidClientId: GOOGLE_CONFIG.androidClientId,
     webClientId: GOOGLE_CONFIG.webClientId,
   });
 
