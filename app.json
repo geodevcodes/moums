@@ -42,14 +42,8 @@
           "backgroundColor": "#F8F3ED",
           "dark": {
             "image": "./assets/images/splash-icon.png",
-            "backgroundColor": "#FFF8F9"
+            "backgroundColor": "#F8F3ED"
           }
-        }
-      ],
-      [
-        "@react-native-google-signin/google-signin",
-        {
-          "iosUrlScheme": "com.googleusercontent.apps.33348702787-hrtr3jt9icq53sl4r3e9kohjle9nu154"
         }
       ],
       "expo-web-browser"
