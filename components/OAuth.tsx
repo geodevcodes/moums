@@ -10,20 +10,21 @@ import { GoogleLoginType } from "@/types/authType";
 //   isSuccessResponse,
 //   statusCodes,
 // } from "@react-native-google-signin/google-signin";
+import * as Google from "expo-auth-session/providers/google";
 import { useRouter } from "expo-router";
+import { jwtDecode } from "jwt-decode";
 import { useContext, useEffect } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import Toast from "react-native-toast-message";
-import * as Google from "expo-auth-session/providers/google";
 
-const mapGoogleUserToPayload = (user: any): GoogleLoginType => ({
-  firstName: user.givenName ?? "",
-  lastName: user.familyName ?? "",
-  email: user.email,
-  avatarImage: user.photo ?? "",
-  googleId: user.id,
-  isVerified: true,
-});
+// const mapGoogleUserToPayload = (user: any): GoogleLoginType => ({
+//   firstName: user.givenName ?? "",
+//   lastName: user.familyName ?? "",
+//   email: user.email,
+//   avatarImage: user.photo ?? "",
+//   googleId: user.id,
+//   isVerified: true,
+// });
 
 interface OAuthProps {
   title: string;
@@ -34,26 +35,57 @@ const OAuth = ({ title }: OAuthProps) => {
   const auth = useContext(AuthContext)!;
   const router = useRouter();
   const [request, response, promptAsync] = Google.useAuthRequest({
-    // expoClientId: GOOGLE_CONFIG.expoClientId,
     iosClientId: GOOGLE_CONFIG.iosClientId,
     androidClientId: GOOGLE_CONFIG.androidClientId,
     webClientId: GOOGLE_CONFIG.webClientId,
   });
 
   useEffect(() => {
-    if (response?.type === "success") {
-      const { authentication } = response;
-      console.log("Google Auth Response:", response);
-      // You can now use the authentication object to get user info or send it to your backend
-    }else if (response?.type === "error") {
-      console.error("Google Auth Error:", response);
-      showErrorToast("Google authentication failed. Please try again.");
-    }
+    const login = async () => {
+      if (response?.type !== "success") return;
+
+      try {
+        const idToken = response.authentication?.idToken;
+
+        if (!idToken) {
+          showErrorToast("Google authentication failed");
+          return;
+        }
+        const user: any = jwtDecode(idToken);
+        const payload: GoogleLoginType = {
+          firstName: user.given_name ?? "",
+          lastName: user.family_name ?? "",
+          email: user.email,
+          avatarImage: user.picture ?? "",
+          googleId: user.sub,
+          isVerified: user.email_verified ?? true,
+        };
+
+        await googleLoginUser(
+          { payload },
+          {
+            onSuccess: async () => {
+              await auth.refreshAuthState();
+              router.replace("/(artist)/(tabs)/home");
+            },
+            onError: (error: any) =>
+              showErrorToast(
+                error.response?.data?.message ?? "Something went wrong",
+              ),
+          },
+        );
+      } catch (error) {
+        console.error("Google Login Error:", error);
+        showErrorToast("Something went wrong");
+      }
+    };
+
+    login();
   }, [response]);
 
-   const handleGoogleSignIn = () => {
-     promptAsync();
-   };
+  const handleGoogleSignIn = () => {
+    promptAsync();
+  };
 
   // useEffect(() => {
   //   GoogleSignin.configure(GOOGLE_CONFIG);

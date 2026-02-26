@@ -36,7 +36,7 @@ export default function Welcome() {
           ))}
         </Swiper>
       </View>
-      <View className="flex-[0.30] bg-white px-7 pt-20 flex-col">
+      <View className="flex-[0.30] bg-white px-7 pt-20 flex-col mb-32">
         <View className="flex-">
           <Text className="text-2xl text-center font-semibold text-[#181D27]">
             {currentItem.title}
